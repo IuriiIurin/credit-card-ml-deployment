@@ -140,7 +140,7 @@ docker pull iuriiiurin/credit-card-ml
 ```
 
 ## Структура репозитория
-
+```
 app/                        - код Flask сервиса
     __init__.py             - инициализация модуля
     api.py                  - Flask приложение с эндпоинтами /health и /predict
@@ -161,3 +161,4 @@ docker-compose.yml          - оркестрация сервиса
 ab_test_plan.md             - план A/B тестирования
 ARCHITECTURE.md             - описание архитектуры сервиса
 README.md                   - документация проекта
+```

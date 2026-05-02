@@ -38,7 +38,8 @@ def predict():
     try:              
         
         data = request.get_json()
-        version = data.pop('model_version', 'v1')                                   # убираем model_version из data до формирования признаков
+        version = data.pop('model_version', 'v1')  # убираем из признаков
+        user_id = data.pop('user_id', None)        # убираем из признаков, сохраняем для лога
         model = models.get(version)
 
         if model is None:
@@ -49,6 +50,7 @@ def predict():
         probability = model.predict_proba(features)[0][1]
 
         logging.info(json.dumps({
+            'user_id': user_id,
             'input': data,
             'prediction': int(prediction[0]),
             'probability': float(probability),
